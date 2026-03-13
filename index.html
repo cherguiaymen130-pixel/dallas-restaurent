@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalls Restaurant - Alger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d32f2f;
+            --secondary: #1a1a1a;
+            --bg: #ffffff;
+            --card-bg: #f9f9f9;
+            --text: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p { font-size: 1.1rem; color: #666; font-style: italic; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .category {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .category h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .sub-title {
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #555;
+            margin: 20px 0 10px 0;
+            font-size: 1rem;
+            display: block;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+
+        .item span:first-child { font-weight: 500; padding-right: 10px; }
+        .price { color: var(--primary); font-weight: bold; white-space: nowrap; }
+
+        .formula-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        .desc { font-size: 0.85rem; color: #777; font-style: italic; margin-top: 5px; }
+
+        /* FOOTER & MAP */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .map-box {
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--primary);
+        }
+
+        .avis-form { display: flex; flex-direction: column; gap: 15px; }
+        .avis-form input, .avis-form textarea {
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-send {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-send:hover { background: #b71c1c; transform: translateY(-2px); }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.5rem; }
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dalls Restaurant</h1>
+    <p>Une expérience culinaire unique à Alger</p>
+</header>
+
+<div class="container">
+    <div class="menu-grid">
+
+        <div class="category">
+            <h3>Entrées Chaudes</h3>
+            <div class="item"><span>Soupe de Légumes</span><span class="price">600 DA</span></div>
+            <div class="item"><span>Hrira Marocaine</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Soupe de Lentilles</span><span class="price">500 DA</span></div>
+            <div class="item"><span>Bourek Poulet (2 pièces)</span><span class="price">400 DA</span></div>
+            <div class="item"><span>Bourek Viande (2 pièces)</span><span class="price">600 DA</span></div>
+            <div class="item"><span>Brick Poulet</span><span class="price">600 DA</span></div>
+            <div class="item"><span>Brick Viande</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Omelette au Fromage</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Pastilla Marocaine</span><span class="price">1000 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Entrées Froides</h3>
+            <div class="item"><span>Salade Mechouia</span><span class="price">300 DA</span></div>
+            <div class="item"><span>Salade César</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Salade de Thon</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Salade Grecque</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Salade Tomate Mozzarella</span><span class="price">700 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Nos Plats</h3>
+            <div class="item"><span>Poulet Grillé</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Poulet Caprese</span><span class="price">1800 DA</span></div>
+            <div class="item"><span>Poulet Forestier</span><span class="price">1900 DA</span></div>
+            <div class="item"><span>Poulet Mexicain</span><span class="price">1900 DA</span></div>
+            <div class="item"><span>Cordon Bleu</span><span class="price">1700 DA</span></div>
+            <div class="item"><span>Poulet Thaï</span><span class="price">1800 DA</span></div>
+            <div class="item"><span>Poulet Haché Farci au Fromage</span><span class="price">1600 DA</span></div>
+            <div class="item"><span>Filet de Bœuf Grillé</span><span class="price">2800 DA</span></div>
+            <div class="item"><span>Filet au Poivre</span><span class="price">2900 DA</span></div>
+            <div class="item"><span>Filet Forestier</span><span class="price">2900 DA</span></div>
+            <div class="item"><span>Steak Haché</span><span class="price">1300 DA</span></div>
+            <div class="item"><span>Steak Haché Farci au Camembert</span><span class="price">1800 DA</span></div>
+            <div class="item"><span>Rumsteck</span><span class="price">2500 DA</span></div>
+            <div class="item"><span>Sauté de Veau</span><span class="price">2500 DA</span></div>
+            <div class="item"><span>Méshoui d'Agneau</span><span class="price">2800 DA</span></div>
+            <div class="item"><span>Entrecôte Grillée</span><span class="price">2500 DA</span></div>
+            <div class="item"><span>Entrecôte au Poivre</span><span class="price">2600 DA</span></div>
+            <div class="item"><span>Entrecôte Forestière</span><span class="price">2900 DA</span></div>
+            <div class="item"><span>Entrecôte Gratinée au Four</span><span class="price">2800 DA</span></div>
+            <div class="item"><span>02 Brochettes Royales Viande</span><span class="price">2800 DA</span></div>
+            <div class="item"><span>Smash Big Burger</span><span class="price">1100 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Poissons</h3>
+            <div class="item"><span>Sardines en Friture</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Calamars en Friture</span><span class="price">1800 DA</span></div>
+            <div class="item"><span>Dorade</span><span class="price">2200 DA</span></div>
+            <div class="item"><span>Loup de Mer Grillé</span><span class="price">2200 DA</span></div>
+            <div class="item"><span>Espadon Sauce Agrumes</span><span class="price">2900 DA</span></div>
+            <div class="item"><span>Espadon Grillé</span><span class="price">2800 DA</span></div>
+            <div class="item"><span>Paëlla Valencienne (1 pers)</span><span class="price">2900 DA</span></div>
+            <div class="item"><span>Paëlla Valencienne (2 pers)</span><span class="price">5500 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Plats Traditionnels</h3>
+            <div class="item"><span>Couscous Maison (Poulet)</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Couscous Maison (Veau)</span><span class="price">1400 DA</span></div>
+            <div class="item"><span>Couscous Maison (Agneau)</span><span class="price">2400 DA</span></div>
+            <div class="item"><span>Chekhchoukha (Poulet)</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Chekhchoukha (Veau)</span><span class="price">1400 DA</span></div>
+            <div class="item"><span>Chekhchoukha (Agneau)</span><span class="price">2400 DA</span></div>
+            <span class="sub-title">Les Tajines</span>
+            <div class="item"><span>Lham Lahlou</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Poulet au Citron</span><span class="price">1400 DA</span></div>
+            <div class="item"><span>Agneau aux Légumes</span><span class="price">1700 DA</span></div>
+            <div class="item"><span>Poisson au Four</span><span class="price">2500 DA</span></div>
+            <div class="item"><span>Tajine Zitoun</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Tajine Kefta</span><span class="price">1500 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Nos Gratins</h3>
+            <div class="item"><span>Gratin Poulet</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Gratin Viande</span><span class="price">900 DA</span></div>
+            <div class="item"><span>Gratin aux Crevettes</span><span class="price">1200 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Nos Pâtes</h3>
+            <div class="item"><span>Tagliatelles au Poulet</span><span class="price">1300 DA</span></div>
+            <div class="item"><span>Tagliatelles au Saumon</span><span class="price">1700 DA</span></div>
+            <div class="item"><span>Tagliatelles Mexicaines</span><span class="price">1500 DA</span></div>
+            <div class="item"><span>Penne à la Bolognaise</span><span class="price">1300 DA</span></div>
+            <div class="item"><span>Spaghetti Fruits de Mer</span><span class="price">2200 DA</span></div>
+            <div class="item"><span>Lasagnes</span><span class="price">1400 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Nos Pizzas</h3>
+            <span class="sub-title">Sauce Rouge</span>
+            <div class="item"><span>Margherita</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Végétarienne</span><span class="price">900 DA</span></div>
+            <div class="item"><span>Napolitaine</span><span class="price">900 DA</span></div>
+            <div class="item"><span>Thon</span><span class="price">1000 DA</span></div>
+            <div class="item"><span>Poulet / Poulet Fumé</span><span class="price">1100 DA</span></div>
+            <div class="item"><span>Peperoni</span><span class="price">1000 DA</span></div>
+            <div class="item"><span>Viande Hachée</span><span class="price">1000 DA</span></div>
+            <div class="item"><span>Quatre Fromages</span><span class="price">1100 DA</span></div>
+            <div class="item"><span>Scandinave / Crevettes</span><span class="price">1500 DA</span></div>
+            <div class="item"><span>Orientale</span><span class="price">1300 DA</span></div>
+            <span class="sub-title">Sauce Blanche</span>
+            <div class="item"><span>Boursino Poulet</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Paysanne / Fermière</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Saumon</span><span class="price">1500 DA</span></div>
+            <span class="sub-title">Les Calzones</span>
+            <div class="item"><span>Italienne / Sicilienne</span><span class="price">900 DA</span></div>
+            <div class="item"><span>Mexicaine / Napolitaine</span><span class="price">1000 DA</span></div>
+            <div class="item"><span>À la Bolognaise / 4 Fromages</span><span class="price">1200 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Nos Desserts</h3>
+            <div class="item"><span>Fondant Gourmand</span><span class="price">1100 DA</span></div>
+            <div class="item"><span>Fondant Chocolat</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Brownie avec Boule de Glace</span><span class="price">900 DA</span></div>
+            <div class="item"><span>Tiramisu / Banoffee</span><span class="price">500 DA</span></div>
+            <div class="item"><span>Crème Brûlée</span><span class="price">600 DA</span></div>
+            <div class="item"><span>Crunchy / Mousse Chocolat</span><span class="price">500 DA</span></div>
+            <div class="item"><span>Flan Maison / Gâteaux Trad.</span><span class="price">300 DA</span></div>
+            <div class="item"><span>Nougat Glacé</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Gâteau du Jour</span><span class="price">600 DA</span></div>
+            <span class="sub-title">Nos Crêpes</span>
+            <div class="item"><span>El Mordjene / Sucre</span><span class="price">500 DA</span></div>
+            <div class="item"><span>Nutella / Miel</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Nutella Banane ou Fraise</span><span class="price">900 DA</span></div>
+            <div class="item"><span>Nutella Banane & Fraise</span><span class="price">1100 DA</span></div>
+            <div class="item"><span>Crêpe Fragola / Dolci</span><span class="price">1000 DA</span></div>
+            <div class="item"><span>Délice Dallas</span><span class="price">1500 DA</span></div>
+            <div class="item"><span>Supplément</span><span class="price">200 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Nos Glaces</h3>
+            <div class="item"><span>Bombino</span><span class="price">600 DA</span></div>
+            <div class="item"><span>Copa Bella</span><span class="price">1000 DA</span></div>
+            <div class="item"><span>Panaché</span><span class="price">1100 DA</span></div>
+            <div class="item"><span>Chocolat Liégeois</span><span class="price">1200 DA</span></div>
+            <div class="item"><span>Banana Split</span><span class="price">1400 DA</span></div>
+            <div class="item"><span>Copa Dallas</span><span class="price">1500 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Formules Petit-Déjeuner</h3>
+            <div class="formula-card">
+                <div class="item"><span>Le Classique</span><span class="price">1000 DA</span></div>
+                <p class="desc">Café au lait ou noir + 02 croissants + jus d'orange + pain, beurre et confiture.</p>
+            </div>
+            <div class="formula-card">
+                <div class="item"><span>English Breakfast</span><span class="price">1400 DA</span></div>
+                <p class="desc">Œuf cocotte + thé rouge ou menthe + pain de mie gratiné + jus d'orange.</p>
+            </div>
+        </div>
+
+        <div class="category">
+            <h3>Cafés & Boissons Chaudes</h3>
+            <div class="item"><span>Café Noir (L'Or)</span><span class="price">300 DA</span></div>
+            <div class="item"><span>Nespresso / Illy</span><span class="price">400 DA</span></div>
+            <div class="item"><span>Café Crème</span><span class="price">150 DA</span></div>
+            <div class="item"><span>Cappuccino / Latte</span><span class="price">300 DA</span></div>
+            <div class="item"><span>Macchiato / Mocaccino</span><span class="price">400 DA</span></div>
+            <div class="item"><span>Café Viennois</span><span class="price">400 DA</span></div>
+            <div class="item"><span>Affogato</span><span class="price">600 DA</span></div>
+            <div class="item"><span>Chocolat Chaud</span><span class="price">500 DA</span></div>
+            <div class="item"><span>Chocolat Viennois</span><span class="price">600 DA</span></div>
+            <div class="item"><span>Chocolat Irish</span><span class="price">700 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Boissons Froides</h3>
+            <span class="sub-title">Frappés & Milkshakes</span>
+            <div class="item"><span>Frappé (Choc/Caram/Café)</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Frappé Noisette</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Milkshake (Choc/Caram/Fraise/Ban)</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Milkshake Nutella Banane</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Milkshake Vanille</span><span class="price">800 DA</span></div>
+            <span class="sub-title">Iced Coffee & Tea</span>
+            <div class="item"><span>Iced Coffee (Mocaccino/Frappuccino)</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Iced Coffee Pistachio</span><span class="price">800 DA</span></div>
+            <div class="item"><span>Iced Coffee Caramel / Latte</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Iced Tea</span><span class="price">800 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Boissons Fraîches</h3>
+            <div class="item"><span>Eau Minérale (PM)</span><span class="price">50 DA</span></div>
+            <div class="item"><span>Eau Minérale (GM)</span><span class="price">150 DA</span></div>
+            <div class="item"><span>Eau Gazeuse (PM)</span><span class="price">100 DA</span></div>
+            <div class="item"><span>Soda</span><span class="price">200 DA</span></div>
+            <div class="item"><span>Diabolo Menthe / Grenadine</span><span class="price">200 DA</span></div>
+        </div>
+
+        <div class="category">
+            <h3>Jus Pressés & Mojitos</h3>
+            <div class="item"><span>Orange / Citron Pressé</span><span class="price">500 DA</span></div>
+            <div class="item"><span>Fraise / Banane / Cocktail</span><span class="price">600 DA</span></div>
+            <span class="sub-title">Nos Mojitos</span>
+            <div class="item"><span>Mojito (Classique/Fraise/Ananas)</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Mojito Mangue</span><span class="price">700 DA</span></div>
+            <div class="item"><span>Mojito Tropical / Blue</span><span class="price">900 DA</span></div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <h2 class="footer-title">📍 Notre Adresse</h2>
+            <p style="margin-bottom: 15px;">Dalls Restaurant, Alger, Algérie</p>
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102315.22830846571!2d3.0125434624999997!3d36.75382695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fb2ed4419992f%3A0x7d01859b158652d!2sAlger!5e0!3m2!1sfr!2sdz!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="footer-title">⭐ Votre Avis</h2>
+            <form class="avis-form" action="https://formspree.io/f/xkoqznpb" method="POST">
+                <input type="text" name="nom" placeholder="Votre Nom" required>
+                <textarea name="message" rows="4" placeholder="Qu'avez-vous pensé de votre repas chez Dalls ?" required></textarea>
+                <button type="submit" class="btn-send">Envoyer mon avis</button>
+            </form>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
